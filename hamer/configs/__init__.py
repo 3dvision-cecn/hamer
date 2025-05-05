@@ -107,8 +107,8 @@ def get_config(config_file: str, merge: bool = True, update_cachedir: bool = Fal
           return path
         return os.path.join(CACHE_DIR_HAMER, path)
 
-      cfg.MANO.MODEL_PATH = update_path(cfg.MANO.MODEL_PATH)
-      cfg.MANO.MEAN_PARAMS = update_path(cfg.MANO.MEAN_PARAMS)
+      # cfg.MANO.MODEL_PATH = update_path(cfg.MANO.MODEL_PATH)
+      # cfg.MANO.MEAN_PARAMS = update_path(cfg.MANO.MEAN_PARAMS)
 
     cfg.freeze()
     return cfg

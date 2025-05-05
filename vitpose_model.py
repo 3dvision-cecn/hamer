@@ -11,14 +11,14 @@ from mmpose.apis import inference_top_down_pose_model, init_pose_model, process_
 os.environ["PYOPENGL_PLATFORM"] = "egl"
 
 # project root directory
-ROOT_DIR = "./"
+ROOT_DIR = "third_party/hamer/third-party/hamer"
 VIT_DIR = os.path.join(ROOT_DIR, "third-party/ViTPose")
 
 class ViTPoseModel(object):
     MODEL_DICT = {
         'ViTPose+-G (multi-task train, COCO)': {
-            'config': f'{VIT_DIR}/configs/wholebody/2d_kpt_sview_rgb_img/topdown_heatmap/coco-wholebody/ViTPose_huge_wholebody_256x192.py',
-            'model': f'{ROOT_DIR}/_DATA/vitpose_ckpts/vitpose+_huge/wholebody.pth',
+            'config': f'third_party/hamer/third-party/ViTPose/configs/wholebody/2d_kpt_sview_rgb_img/topdown_heatmap/coco-wholebody/ViTPose_huge_wholebody_256x192.py',
+            'model': f'conf/checkpoints/hamer_ckpts/vitpose_ckpts/vitpose+_huge/wholebody.pth',
         },
     }
 

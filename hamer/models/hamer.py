@@ -29,6 +29,7 @@ class HAMER(pl.LightningModule):
         self.save_hyperparameters(logger=False, ignore=['init_renderer'])
 
         self.cfg = cfg
+        print(self.cfg)
         # Create backbone feature extractor
         self.backbone = create_backbone(cfg)
         if cfg.MODEL.BACKBONE.get('PRETRAINED_WEIGHTS', None):
