@@ -7,6 +7,8 @@ import torch
 import torch.nn as nn
 
 from mmpose.apis import inference_top_down_pose_model, init_pose_model, process_mmdet_results, vis_pose_result
+import contextlib
+import sys
 
 os.environ["PYOPENGL_PLATFORM"] = "egl"
 
@@ -34,7 +36,10 @@ class ViTPoseModel(object):
     def _load_model(self, name: str) -> nn.Module:
         dic = self.MODEL_DICT[name]
         ckpt_path = dic['model']
-        model = init_pose_model(dic['config'], ckpt_path, device=self.device)
+        with open(os.devnull, 'w') as devnull, \
+            contextlib.redirect_stdout(devnull), \
+            contextlib.redirect_stderr(devnull):
+            model = init_pose_model(dic['config'], ckpt_path, device=self.device)
         return model
 
     def set_model(self, name: str) -> None:
